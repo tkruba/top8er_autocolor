@@ -57,6 +57,21 @@ function applyColorSettings(gs) {
 	shadowExtra.value = gs.font.extra.shadow;
 }
 
-// use gameSettings.<yourgame>
+// Use of URL pathname for a bit of automation | Default game has been set to use "smash" colors
+const url = window.location.pathname;
+let game = "smash";
+switch (url) {
+	case '/':
+		game = "smash";
+		break;
+	case '/StreetFighter6':
+		game = "sf";
+		break;
+	default:
+		game = "smash";
+		break;
+}
 
-applyColorSettings(gameSettings.<yourgame>);
+applyColorSettings(gameSettings[game]);
+// If you don't want to use URL pathname uncomment this line of code and comment the one above
+// applyColorSettings(gameSettings.smash);
